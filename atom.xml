@@ -34,9 +34,9 @@
       <category term="Java" scheme="http://cenrise.com/categories/Java/"/>
     
     
-      <category term="java" scheme="http://cenrise.com/tags/java/"/>
-    
       <category term="编程语言" scheme="http://cenrise.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="java" scheme="http://cenrise.com/tags/java/"/>
     
   </entry>
   
@@ -65,9 +65,9 @@
     </summary>
     
     
-      <category term="编程语言" scheme="http://cenrise.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
-    
       <category term="Java" scheme="http://cenrise.com/tags/Java/"/>
+    
+      <category term="编程语言" scheme="http://cenrise.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
