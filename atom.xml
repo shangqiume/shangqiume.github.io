@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>中起之星</title>
+  <subtitle>Cenrise</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://cenrise.com/"/>
+  <updated>2016-05-20T06:57:56.119Z</updated>
+  <id>http://cenrise.com/</id>
+  
+  <author>
+    <name>jiadongpo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础之转型</title>
+    <link href="http://cenrise.com/2016/05/20/Java%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%BD%AC%E5%9E%8B/"/>
+    <id>http://cenrise.com/2016/05/20/Java基础之转型/</id>
+    <published>2016-05-20T06:43:49.000Z</published>
+    <updated>2016-05-20T06:57:56.119Z</updated>
+    
+    <content type="html">&lt;p&gt;上转型对象&lt;br&gt;父类的声明指向子类对象（最无争议的说法）&lt;br&gt;父类 对象名 = new 子类构造方法();&lt;br&gt;(1)该对象可以调用子类重写父类的方法(本质)&lt;br&gt;(2)该对象不能调用子类独有的方法&lt;br&gt;(3)上转型对象可以强制转化成子类对象 (进而访问子类独有的方法)&lt;br&gt;父类 :     Person&lt;br&gt;子类 :Teacher    Student&lt;br&gt;Person person = new Teacher();&lt;br&gt;Studnet student= (Student)person;&lt;br&gt;在企业开发的时候,当别人给你传递一个对象的时候,如果对象的类型,不是很确定,要先测试一下，instanceof :java中的一个关键字,专门用来进行对象 类型的测试,跟强制类型转化,经常结合使用&lt;br&gt;    if(person instanceof Student2){&lt;br&gt;      Student2 p2 =(Student2) person;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上转型对象&lt;br&gt;父类的声明指向子类对象（最无争议的说法）&lt;br&gt;父类 对象名 = new 子类构造方法();&lt;br&gt;(1)该对象可以调用子类重写父类的方法(本质)&lt;br&gt;(2)该对象不能调用子类独有的方法&lt;br&gt;(3)上转型对象可以强制转化成子类对象 (进而访问子类独有的
+    
+    </summary>
+    
+      <category term="Java" scheme="http://cenrise.com/categories/Java/"/>
+    
+    
+      <category term="java" scheme="http://cenrise.com/tags/java/"/>
+    
+      <category term="编程语言" scheme="http://cenrise.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java中Object转String</title>
+    <link href="http://cenrise.com/2016/05/20/java%E4%B8%ADObject%E8%BD%ACString/"/>
+    <id>http://cenrise.com/2016/05/20/java中Object转String/</id>
+    <published>2016-05-20T06:41:37.000Z</published>
+    <updated>2016-05-20T07:06:52.601Z</updated>
+    
+    <content type="html">&lt;p&gt;Object转为String的几种形式&lt;br&gt; 在java项目的实际开发和应用中，常常需要用到将对象转为String这一基本功能。本文将对常用的转换方法进行一个总结。常用的方法有Object.toString()，(String)要转换的对象，String.valueOf(Object)等。下面对这些方法一一进行分析。&lt;br&gt;方法1：采用 Object.toString()方法&lt;br&gt;请看下面的例子：&lt;br&gt;Object object = getObject();&lt;br&gt;System.out.println(object.toString());&lt;br&gt;在这种使用方法中，因为java.lang.Object类里已有public方法.toString()，所以对任何严格意义上的java对象都可以调用此方法。但在使用时要注意，必须保证object不是null值，否则将抛出NullPointerException异常。采用这种方法时，通常派生类会覆盖Object里的toString()方法。&lt;br&gt;方法2：采用类型转换(String)object方法&lt;br&gt;这是标准的类型转换，将object转成String类型的值。使用这种方法时，需要注意的是类型必须能转成String类型。因此最好用instanceof做个类型检查，以判断是否可以转换。否则容易抛出CalssCastException异常。此外，需特别小心的是因定义为Object 类型的对象在转成String时语法检查并不会报错，这将可能导致潜在的错误存在。这时要格外小心。如：&lt;br&gt;Object obj = new Integer(100);&lt;br&gt;String　strVal = (String)obj;&lt;br&gt;在运行时将会出错，因为将Integer类型强制转换为String类型，无法通过。但是，&lt;br&gt;Integer obj = new Integer(100);&lt;br&gt;String　strVal = (String)obj;&lt;br&gt;如是格式代码，将会报语法错误。&lt;br&gt;此外，因null值可以强制转换为任何java类类型，(String)null也是合法的。&lt;br&gt;方法3：采用String.valueOf(Object)&lt;br&gt;String.valueOf(Object)的基础是Object.toString()。但它与Object.toString()又有所不同。在前面方法1的分析中提到，使用第一种时需保证不为null。但采用第三种方法时，将不用担心object是否为null值这一问题。为了便于说明问题，我们来分析一下相关的源代码。Jdk里String.valueOf(Object)源码如下：&lt;br&gt;/**&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Returns the string representation of the Object argument.&lt;br&gt;*&lt;/li&gt;
+&lt;li&gt;@param　 obj　 an Object.&lt;/li&gt;
+&lt;li&gt;@return　if the argument is null, then a string equal to&lt;br&gt;&lt;em&gt;　　　　　“null”; otherwise, the value of
+&lt;/em&gt;　　　　　obj.toString() is returned.&lt;/li&gt;
+&lt;li&gt;@see　　 java.lang.Object.toString()&lt;br&gt;*/&lt;br&gt;public static String valueOf(Object obj) {&lt;br&gt;return (obj == null) ? “null” : obj.toString();&lt;br&gt;}&lt;br&gt;从上面的源码可以很清晰的看出null值不用担心的理由。但是，这也恰恰给了我们隐患。我们应当注意到，当object为null时，String.valueOf(object)的值是字符串”null”，而不是null!在使用过程中切记要注意。试想一下，如果我们用&lt;br&gt;if(String.valueOf(object)==null)&lt;br&gt;{&lt;br&gt;System.out.println(“传入的值是null!”);&lt;br&gt;}&lt;br&gt;这样的语句将可能会发生什么问题。再想一下，向控制台输出时，在视觉上如下语句在执行的结果上有什么不同：&lt;br&gt;System.out.println(String.valueOf(null));&lt;br&gt;System.out.println(null);&lt;br&gt;我们看到的输出将是一模一样的东西：null，但它们意义相同吗？&lt;br&gt;判断一个字符串为空&lt;br&gt;s为一个字符串，判断它为空的方法：&lt;br&gt;if   (null==s ||””.equals(s))   {&lt;br&gt;……&lt;br&gt;}&lt;br&gt;注意：这里的null==s和””.equals(s)不要写成s==null和s.equals(s)，因为””这个值是已经确定的，预知的，而s是未知的，所以用得不小心的时候s.equals(“”)就会出现nullpoint异常。在这里虽然不会,因为前面有if(null==s),但是习惯跟在那里使用没有关系的。不一定的equals方法，包括其它很多处理，如果用确定的值处理问题会比未确定的处理少很多bug。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;来自 &lt;a href=&quot;http://www.cnblogs.com/sp2012/archive/2012/02/21/2465693.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/sp2012/archive/2012/02/21/2465693.html&lt;/a&gt; &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Object转为String的几种形式&lt;br&gt; 在java项目的实际开发和应用中，常常需要用到将对象转为String这一基本功能。本文将对常用的转换方法进行一个总结。常用的方法有Object.toString()，(String)要转换的对象，String.valueOf(
+    
+    </summary>
+    
+    
+      <category term="编程语言" scheme="http://cenrise.com/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="Java" scheme="http://cenrise.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://cenrise.com/2016/05/17/hello-world/"/>
+    <id>http://cenrise.com/2016/05/17/hello-world/</id>
+    <published>2016-05-17T14:25:30.671Z</published>
+    <updated>2016-05-20T05:22:10.175Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
