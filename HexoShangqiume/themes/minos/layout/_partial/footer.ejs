@@ -1,0 +1,11 @@
+<footer id="footer">
+  <% if (theme.sidebar === 'bottom'){ %>
+    <%- partial('_partial/sidebar') %>
+  <% } %>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></a>
+	  <a href="http://www.miibeian.gov.cn" target="_blank">豫ICP备1302120</a>
+    </div>
+  </div>
+</footer>
